@@ -1,5 +1,5 @@
-// Espera o carregamento da página para exibir a mensagem
+// script.js
+
 window.onload = function() {
-    // Cria um balão com uma mensagem
-    alert("Bom Estudos! 😊");
+    alert('Bom estudo! Aproveite para aprender muito com as teclas de atalho!');
 };
