@@ -1,355 +1,115 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teclas de Atalho</title>
+    <title>Fake IA - Reconhecimento de Famosos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5dc;
-            color: #333;
-            line-height: 1.6;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
         }
-
         header {
-            background-color: #f06292;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 4px solid #ec407a;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #ec407a;
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .shortcut-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .shortcut-list li {
-            background-color: #f8bbd0;
-            border: 1px solid #f06292;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .shortcut-list li span {
-            font-weight: bold;
-            color: #ec407a;
-        }
-
-        footer {
-            background-color: #f06292;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
             width: 100%;
-            bottom: 0;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .mode-toggle-btn {
+            padding: 20px;
+            background: #000;
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #ec407a;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            z-index: 1000;
-        }
-
-        .mode-toggle-btn:hover {
-            background-color: #d81b60;
-        }
-
-        .dark-mode {
-            background-color: #333;
-            color: #f5f5f5;
-        }
-
-        .dark-mode header {
-            background-color: #d81b60;
-        }
-
-        .dark-mode .container {
-            background-color: #424242;
-        }
-
-        .dark-mode footer {
-            background-color: #d81b60;
-        }
-
-        .dark-mode .shortcut-list li {
-            background-color: #555;
-            border: 1px solid #ec407a;
-        }
-
-        .dark-mode .shortcut-list li span {
-            color: #f5f5f5;
-        }
-
-        .dark-mode p, .dark-mode h2 {
-            color: #f5f5f5;
-        }
-
-        .rose-effect {
-            position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
-            display: none;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
-
-        .rose-effect.show {
-            display: block;
-            animation: roses 1s ease-out forwards;
+        nav ul {
+            list-style: none;
+            padding: 0;
         }
-
-        @keyframes roses {
-            0% {
-                opacity: 1;
-                transform: scale(0.5);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(1.5);
-            }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
-
-        .rose {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: rgba(255, 105, 180, 0.6);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: rose-move 1.5s ease-out forwards;
-        }
-
-        @keyframes rose-move {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(200px, -200px) scale(0.3);
-                opacity: 0;
-            }
-        }
-
-        .balloon {
-            position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #ec407a;
+        nav ul li a {
             color: white;
-            padding: 15px 25px;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            display: none;
-            opacity: 0;
-            animation: balloonIn 1s forwards;
-            z-index: 999;
-            transition: opacity 2s ease, transform 2s ease;
+            text-decoration: none;
+            font-size: 1.2em;
         }
-
-        @keyframes balloonIn {
-            0% {
-                top: 10%;
-                opacity: 0;
-            }
-            100% {
-                top: 15%;
-                opacity: 1;
-            }
+        #container {
+            width: 50%;
+            padding: 40px;
+            background: #333;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+            margin: 100px 0 20px 0;
         }
-
-        @keyframes balloonOut {
-            0% {
-                top: 15%;
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(1.1);
-            }
-            100% {
-                top: 25%;
-                opacity: 0;
-                display: none;
-                transform: scale(1.3);
-            }
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            text-transform: uppercase;
         }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
+        #output {
+            margin-top: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+        input {
+            margin-top: 20px;
+            padding: 14px;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            width: 85%;
+        }
+        button {
+            padding: 14px 30px;
+            margin-top: 15px;
+            background: #ffcc00;
+            color: black;
+            font-size: 1.4em;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff9900;
         }
     </style>
+    <script>
+        let step = 0;
+        function fakeAI() {
+            const names = ["Cristiano Ronaldo", "Lionel Messi", "Leonardo DiCaprio"];
+            document.getElementById("output").innerText = "Reconhecido: " + names[step % names.length];
+            step++;
+        }
+    </script>
 </head>
 <body>
     <header>
-        <h1>Teclas de Atalho na Informática</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+                <li><a href="como-funciona.html">Como Funciona</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <div class="container">
-        <h2>O que são teclas de atalho?</h2>
-        <p>Teclas de atalho são combinações de teclas que permitem realizar tarefas de forma mais rápida e eficiente. Elas são usadas para agilizar o trabalho no computador, permitindo que você execute comandos sem precisar navegar pelos menus ou clicar em várias opções com o mouse.</p>
-        <p>As teclas de atalho são muito úteis em diversos programas e sistemas operacionais. Elas ajudam a economizar tempo e a aumentar a produtividade, pois permitem que você execute ações rapidamente enquanto trabalha em outras tarefas.</p>
-
-        <h2>Exemplos de Teclas de Atalho Comuns</h2>
-        <ul class="shortcut-list">
-            <li><span>Ctrl + C</span> - Copiar: Copia o item ou texto selecionado para a área de transferência.</li>
-            <li><span>Ctrl + V</span> - Colar: Cola o conteúdo copiado ou cortado na posição do cursor.</li>
-            <li><span>Ctrl + X</span> - Cortar: Remove o item ou texto selecionado e o coloca na área de transferência.</li>
-            <li><span>Ctrl + Z</span> - Desfazer: Reverte a última ação realizada.</li>
-            <li><span>Ctrl + S</span> - Salvar: Salva o arquivo ou documento atual.</li>
-            <li><span>Ctrl + P</span> - Imprimir: Abre a janela de impressão para imprimir o documento atual.</li>
-            <li><span>Alt + Tab</span> - Alternar entre janelas: Permite alternar rapidamente entre as janelas abertas.</li>
-            <li><span>Ctrl + F</span> - Procurar: Abre a ferramenta de busca para procurar por palavras ou frases no documento.</li>
-            <li><span>Ctrl + A</span> - Selecionar tudo: Seleciona todo o conteúdo disponível na página ou documento.</li>
-            <li><span>Ctrl + Shift + Esc</span> - Abrir Gerenciador de Tarefas: Abre diretamente o gerenciador de tarefas do Windows.</li>
-            <li><span>Alt + F4</span> - Fechar janela: Fecha a janela ou programa em uso.</li>
-            <li><span>Windows + D</span> - Mostrar/Esconder área de trabalho: Minimiza ou restaura todas as janelas abertas, mostrando a área de trabalho.</li>
-            <li><span>Ctrl + T</span> - Nova aba: Abre uma nova aba no navegador de internet.</li>
-            <li><span>Ctrl + W</span> - Fechar aba: Fecha a aba atual no navegador.</li>
-            <li><span>Ctrl + E</span> - Focar na barra de pesquisa: Foca na barra de pesquisa ou barra de endereços.</li>
-            <li><span>F2</span> - Renomear: Permite renomear arquivos ou pastas selecionados.</li>
-            <li><span>Ctrl + Shift + T</span> - Reabrir aba fechada: Reabre a última aba fechada no navegador de internet.</li>
-            <li><span>Ctrl + Shift + Del</span> - Limpar histórico do navegador: Abre a opção para limpar o histórico de navegação.</li>
-            <li><span>Windows + E</span> - Abrir o explorador de arquivos: Abre diretamente o explorador de arquivos do sistema.</li>
-            <li><span>Ctrl + R</span> - Atualizar: Atualiza a página ou documento aberto (no navegador ou outras aplicações).</li>
-            <li><span>Ctrl + B</span> - Negrito: Coloca o texto selecionado em negrito (em editores de texto).</li>
-            <li><span>Ctrl + I</span> - Itálico: Coloca o texto selecionado em itálico.</li>
-            <li><span>Ctrl + U</span> - Sublinhado: Coloca o texto selecionado sublinhado.</li>
-            <li><span>Alt + Enter</span> - Propriedades: Exibe as propriedades do item selecionado (como arquivos e pastas).</li>
-            <li><span>Ctrl + Shift + Esc</span> - Gerenciador de Tarefas: Abre o Gerenciador de Tarefas diretamente, sem a necessidade do menu iniciar.</li>
-            <li><span>Alt + Space</span> - Menu de janela: Abre o menu de opções da janela ativa (minimizar, restaurar, mover, etc.).</li>
-        </ul>
-
-        <h2>Por que usar teclas de atalho?</h2>
-        <p>As teclas de atalho ajudam a otimizar o uso do computador, tornando o trabalho mais rápido e eficiente. Elas permitem realizar tarefas sem a necessidade de navegar por menus e clicando em várias opções, o que economiza tempo e melhora a produtividade.</p>
-
-        <h2>Benefícios das teclas de atalho</h2>
-        <p>Além de tornar o trabalho mais eficiente, as teclas de atalho oferecem diversos benefícios, como:</p>
-        <ul>
-            <li><strong>Aumento da produtividade:</strong> Ações rápidas sem interrupções de cliques.</li>
-            <li><strong>Economia de tempo:</strong> Reduz o tempo gasto para navegar por menus e fazer ajustes manuais.</li>
-            <li><strong>Facilidade de uso:</strong> Mais natural e intuitivo para quem já está acostumado com o teclado.</li>
-            <li><strong>Redução de esforço físico:</strong> Menos movimento do mouse e mais foco no que realmente importa.</li>
-        </ul>
+    <div id="container">
+        <h2>Envie uma foto para reconhecimento</h2>
+        <input type="file" accept="image/*">
+        <button onclick="fakeAI()">Analisar Foto</button>
+        <div id="output"></div>
     </div>
-
-    <footer>
-        <p>Feito por: Yuri | Para: Dudinha Medm</p>
-    </footer>
-
-    <button class="mode-toggle-btn" onclick="toggleMode()">Modo Escuro</button>
-    <div class="rose-effect" id="roseEffect"></div>
-    <div class="balloon" id="balloonMessage">Bons estudos Princesa, Bebe agua emmm</div>
-
-    <script>
-        function toggleMode() {
-            const body = document.body;
-            const button = document.querySelector('.mode-toggle-btn');
-            const roseEffect = document.getElementById('roseEffect');
-
-            body.classList.toggle('dark-mode');
-            roseEffect.classList.add('show');
-            generateRoses();
-
-            if (body.classList.contains('dark-mode')) {
-                button.textContent = 'Modo Claro';
-            } else {
-                button.textContent = 'Modo Escuro';
-            }
-
-            setTimeout(() => {
-                roseEffect.classList.remove('show');
-            }, 1500);
-        }
-
-        function generateRoses() {
-            const roseEffect = document.getElementById('roseEffect');
-            for (let i = 0; i < 20; i++) {
-                const rose = document.createElement('div');
-                rose.classList.add('rose');
-                rose.style.left = `${Math.random() * 100}%`;
-                rose.style.top = `${Math.random() * 100}%`;
-                roseEffect.appendChild(rose);
-                setTimeout(() => {
-                    rose.remove();
-                }, 1500);
-            }
-        }
-
-        window.onload = function() {
-            const balloon = document.getElementById('balloonMessage');
-            balloon.style.display = 'block';
-            setTimeout(() => {
-                balloon.style.opacity = 1;
-            }, 100);
-
-            setTimeout(() => {
-                balloon.style.animation = 'balloonOut 2s forwards';
-            }, 4000);
-        };
-    </script>
 </body>
 </html>
