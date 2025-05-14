@@ -1,10 +1,10 @@
 <!-- index.html -->
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reconhecimento de Famosos</title>
+    <title>Reconocimiento de Famosos</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -89,7 +89,7 @@
         let step = 0;
         function fakeAI() {
             const names = ["Cristiano Ronaldo", "Lionel Messi", "Leonardo DiCaprio"];
-            document.getElementById("output").innerText = "Reconhecido: " + names[step % names.length];
+            document.getElementById("output").innerText = "Reconocido: " + names[step % names.length];
             step++;
         }
     </script>
@@ -98,17 +98,17 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="suporte.html">Suporte</a></li>
-                <li><a href="como-funciona.html">Como Funciona</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="contato.html">Contacto</a></li>
+                <li><a href="suporte.html">Soporte</a></li>
+                <li><a href="como-funciona.html">¿Cómo Funciona?</a></li>
             </ul>
         </nav>
     </header>
     <div id="container">
-        <h2>Envie uma foto para reconhecimento</h2>
+        <h2>Sube una foto para el reconocimiento</h2>
         <input type="file" accept="image/*">
-        <button onclick="fakeAI()">Analisar Foto</button>
+        <button onclick="fakeAI()">Analizar Foto</button>
         <div id="output"></div>
     </div>
 </body>
